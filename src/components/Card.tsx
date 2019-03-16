@@ -16,17 +16,29 @@ const Message = styled.div`
   letter-spacing: normal;
   color: #9b9b9b;
   font-family: HiraginoSans-W3;
-  padding: 10px 0;
+  padding: 14px 0;
+`
+
+const FacePicture = styled.img`
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  height: 40px
+  width: 40px;
 `
 
 const Name = styled.div`
+  display: inline-block;
   font-size: 12px;
   color: #9b9b9b;
+  margin-left: 11px;
+  font-weight: bold;
 `
 
 export const Card = (card: CardVM) => {
   return (
     <Wrapper>
+      <FacePicture src={card.employeePictureUrl} />
       <Name>
         {card.employeeName}
       </Name>

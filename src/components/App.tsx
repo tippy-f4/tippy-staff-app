@@ -49,7 +49,7 @@ const App = () => {
   const vm =
     new CardVM(
         "もりもり",
-        "pictureUrl",
+        "http://placehold.jp/150x150.png",
         new Date(),
         `
         今日はありがとうございました。春にぴったりの服を一緒に選んでもらって
