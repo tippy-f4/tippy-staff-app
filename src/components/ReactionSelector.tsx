@@ -44,8 +44,14 @@ const Points = styled.div`
   font-size: 14px;
 `
 
-export const ReactionSelector = (points: number) => {
-  const [isPressed, setPressStatus] = useState(false)
+interface ReactionSelectorProps {
+  points: number,
+  isPraisable: boolean
+}
+
+export const ReactionSelector = (props: ReactionSelectorProps) => {
+  const { points, isPraisable } = props
+  const [isPraised, setPraisedStatus] = useState(isPraisable)
   const [currentPoints, updatePoints] = useState(points)
 
   const incrementPoints = () => {
@@ -54,8 +60,8 @@ export const ReactionSelector = (points: number) => {
 
   // まだ押してないときしかハートをつけられない
   const giveHeart = () => {
-    if (!isPressed) {
-      setPressStatus(!isPressed)
+    if (!isPraised) {
+      setPraisedStatus(!isPraised)
       incrementPoints()
     }
   }
@@ -63,7 +69,7 @@ export const ReactionSelector = (points: number) => {
   return (
     <Toggler onClick={() => giveHeart()}>
       <Points>{currentPoints}</Points>
-      <FloatedButton src={isPressed ? HeartPressed : Heart} />
+      <FloatedButton src={isPraised ? HeartPressed : Heart} />
     </Toggler>
   )
 }

@@ -59,7 +59,7 @@ interface CardResponse {
   employee_name: string,
   employee_image: string,
   is_praisable: boolean,
-  points: number,
+  praise_count: number,
   created_at: string
 }
 
@@ -69,8 +69,6 @@ const App = () => {
   });
 
   useEffect(() => {
-    console.log('mounted')
-
     const fetchCards = async () => {
       const { body } = await superagent
         .get('http://localhost:3030/employee_posts')
@@ -83,7 +81,8 @@ const App = () => {
             c.employee_name,
             c.employee_image,
             c.message,
-            c.points,
+            c.praise_count,
+            c.is_praisable,
             new Date(c.created_at)
           )
         )
@@ -103,7 +102,9 @@ const App = () => {
         東大宮店の店員が過去にもらったカード
       </Subtitle>
       <CardList>
-        {state.cards.map(vm => <Card card={vm} />)}
+        {state.cards.map(vm =>
+          <Card key={vm.cardId} card={vm} />
+        )}
       </CardList>
   </Wrapper>
   );
