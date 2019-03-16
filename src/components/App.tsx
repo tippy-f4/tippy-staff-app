@@ -30,15 +30,13 @@ const Subtitle = styled.div`
 `
 
 const HeaderBg = styled.div`
-  background: #bbbbbb;
+  background-image: linear-gradient(to right, #ffa080, #f47280);
   position: absolute;
-  height: 200px;
+  height: 163px;
   left: 0;
   z-index: 1;
   right: 0;
   top: 0;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
 `
 
 const CardList = styled.div`
@@ -61,7 +59,7 @@ const App = () => {
     )
 
   return (
-    <Wrapper className="App">
+    <Wrapper>
       <HeaderBg />
       <Title>
         F4 Tip サービス
