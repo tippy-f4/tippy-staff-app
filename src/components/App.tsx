@@ -19,6 +19,7 @@ const Title = styled.div`
   margin-bottom: 10px;
   position: relative;
   z-index: 100;
+  font-weight: bold;
 `
 
 const Subtitle = styled.div`
@@ -27,12 +28,14 @@ const Subtitle = styled.div`
   text-align: center;
   position: relative;
   z-index: 100;
+  margin-top: 23px;
+  font-weight: bold;
 `
 
 const HeaderBg = styled.div`
   background-image: linear-gradient(to right, #ffa080, #f47280);
   position: absolute;
-  height: 163px;
+  height: 150px;
   left: 0;
   z-index: 1;
   right: 0;
