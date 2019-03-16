@@ -32,17 +32,19 @@ const Subtitle = styled.div`
 const HeaderBg = styled.div`
   background: #bbbbbb;
   position: absolute;
-  height: 400px;
-  left: -120px;
+  height: 200px;
+  left: 0;
   z-index: 1;
-  top: -200px;
-  border-radius: 50%;
-  width: 600px;
+  right: 0;
+  top: 0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 `
 
 const CardList = styled.div`
   position: relative;
   z-index: 100;
+  width: 100%;
 `
 
 const App = () => {
