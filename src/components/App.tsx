@@ -1,7 +1,8 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Card } from './Card';
 import { CardVM } from '../cardVM';
+import superagent from 'superagent';
 
 const Wrapper = styled.div`
   margin: 0;
@@ -48,19 +49,49 @@ const CardList = styled.div`
   width: 100%;
 `
 
+interface AppState {
+  cards: Array<CardVM>
+}
+
+interface CardResponse {
+  id: string,
+  message: string,
+  employee_name: string,
+  employee_image: string,
+  is_praisable: boolean,
+  points: number,
+  created_at: string
+}
+
 const App = () => {
-  const vm =
-    new CardVM(
-        "もりもり",
-        "http://placehold.jp/150x150.png",
-        new Date(),
-        `
-        今日はありがとうございました。春にぴったりの服を一緒に選んでもらって
-        とっても嬉しいです！もりおさんのサービスは丁寧で最高です。
-        また次回よろしくお願いします！
-        `,
-        10
-    )
+  const [state, setAppState] = useState<AppState>({
+    cards: []
+  });
+
+  useEffect(() => {
+    console.log('mounted')
+
+    const fetchCards = async () => {
+      const { body } = await superagent
+        .get('http://localhost:3030/employee_posts')
+        .set('accept', 'json')
+
+      setAppState({
+        cards: body.cards.map((c: CardResponse) =>
+          new CardVM(
+            c.id,
+            c.employee_name,
+            c.employee_image,
+            c.message,
+            c.points,
+            new Date(c.created_at)
+          )
+        )
+      })
+    }
+
+    fetchCards()
+  }, [])
 
   return (
     <Wrapper>
@@ -72,11 +103,7 @@ const App = () => {
         東大宮店の店員が過去にもらったカード
       </Subtitle>
       <CardList>
-        {Card(vm)}
-        {Card(vm)}
-        {Card(vm)}
-        {Card(vm)}
-        {Card(vm)}
+        {state.cards.map(vm => <Card card={vm} />)}
       </CardList>
   </Wrapper>
   );

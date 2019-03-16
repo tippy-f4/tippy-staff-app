@@ -2,11 +2,12 @@ import dayjs from 'dayjs';
 
 export class CardVM {
   constructor(
+    readonly cardId: string,
     readonly employeeName: string,
     readonly employeePictureUrl: string,
-    readonly createdAt: Date,
     readonly message: string,
-    readonly points: number
+    readonly points: number,
+    readonly createdAt: Date
   ) {}
 
   toFormattedCreatedAt(): string {

@@ -1,0 +1,51 @@
+{
+  "employee_posts": {
+    "cards": [
+      {
+        "id": "11122233344",
+        "message": "とても素晴らしいサービスでした。またよろしくおねがいします。",
+        "employee_name": "せいや",
+        "employee_image": "http://placehold.jp/150x150.png",
+        "is_praisable": false,
+        "praise_count": 10,
+        "created_at": "2019-03-16T22:49:56.341"
+      },
+      {
+        "id": "22233344455555",
+        "message": "とても素晴らしいサービスでした。またよろしくおねがいします。",
+        "employee_name": "tanikei",
+        "employee_image": "http://placehold.jp/150x150.png",
+        "is_praisable": true,
+        "praise_count": 13,
+        "created_at": "2019-03-16T22:49:56.341"
+      },
+      {
+        "id": "333444555555",
+        "message": "とても素晴らしいサービスでした。またよろしくおねがいします。",
+        "employee_name": "miryon",
+        "employee_image": "http://placehold.jp/150x150.png",
+        "is_praisable": true,
+        "praise_count": 15,
+        "created_at": "2019-03-16T22:49:56.341"
+      },
+      {
+        "id": "444455556666",
+        "message": "とても素晴らしいサービスでした。またよろしくおねがいします。",
+        "employee_name": "ideyuta",
+        "employee_image": "http://placehold.jp/150x150.png",
+        "is_praisable": false,
+        "praise_count": 11,
+        "created_at": "2019-03-16T22:49:56.341"
+      },
+      {
+        "id": "666677778888",
+        "message": "とても素晴らしいサービスでした。またよろしくおねがいします。",
+        "employee_name": "junjun",
+        "employee_image": "http://placehold.jp/150x150.png",
+        "is_praisable": false,
+        "praise_count": 11,
+        "created_at": "2019-03-16T22:49:56.341"
+      }
+    ]
+  }
+}

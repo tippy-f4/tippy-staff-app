@@ -60,7 +60,13 @@ const CreatedAt = styled.div`
   vertical-align: -webkit-baseline-middle;
 `
 
-export const Card = (card: CardVM) => {
+interface CardProps {
+  card: CardVM
+}
+
+export const Card = (props: CardProps) => {
+  const { card } = props
+
   return (
     <Wrapper>
       <FacePictureBg/>
