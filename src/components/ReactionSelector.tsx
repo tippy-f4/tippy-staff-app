@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import Heart from './heart.svg'
+import HeartPressed from './heart-pressed.svg'
 
 const Toggler = styled.div`
   text-align: right;
+  position: relative;
+  display: inline-block;
+  float: right;
 `
 
+/*
 interface SelectorProps {
   isOpen: Boolean
 }
@@ -21,23 +27,14 @@ const Selector = styled.div`
   z-index: 200;
   right: 0;
 `
-
-const Wrapper = styled.div`
-  width: 100%;
-  position: relative;
-`
+*/
 
 export const ReactionSelector = () => {
-  const [isOpen, setOpenStatus] = useState(false)
+  const [isPressed, setPressStatus] = useState(false)
 
   return (
-    <Wrapper>
-      <Selector isOpen={isOpen}>
-        hoge
-      </Selector>
-      <Toggler onClick={() => setOpenStatus(!isOpen)}>
-        click
-      </Toggler>
-    </Wrapper>
+    <Toggler onClick={() => setPressStatus(!isPressed)}>
+      <img src={isPressed ? HeartPressed : Heart} />
+    </Toggler>
   )
 }

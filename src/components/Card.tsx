@@ -19,6 +19,7 @@ const Message = styled.div`
   color: #4a4a4a;
   font-family: HiraginoSans-W3;
   padding: 20px 0;
+  padding-bottom: 12px;
 `
 
 const FacePicture = styled.img`
@@ -48,10 +49,15 @@ const Name = styled.div`
   font-weight: bold;
 `
 
+const Footer = styled.div`
+  height: 35px;
+`
+
 const CreatedAt = styled.div`
   color: #b2b2b2;
-  float: left;
   font-size: 10px;
+  display: inline-block;
+  vertical-align: -webkit-baseline-middle;
 `
 
 export const Card = (card: CardVM) => {
@@ -65,10 +71,12 @@ export const Card = (card: CardVM) => {
       <Message>
         {card.message}
       </Message>
-      <CreatedAt>
-        {card.toFormattedCreatedAt()}
-      </CreatedAt>
-      <ReactionSelector />
+      <Footer>
+        <CreatedAt>
+          {card.toFormattedCreatedAt()}
+        </CreatedAt>
+        <ReactionSelector />
+      </Footer>
     </Wrapper>
   )
 }
