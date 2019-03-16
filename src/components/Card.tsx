@@ -18,7 +18,7 @@ const Message = styled.div`
   letter-spacing: normal;
   color: #4a4a4a;
   font-family: HiraginoSans-W3;
-  padding: 14px 0;
+  padding: 20px 0;
 `
 
 const FacePicture = styled.img`
