@@ -75,7 +75,7 @@ export const Card = (card: CardVM) => {
         <CreatedAt>
           {card.toFormattedCreatedAt()}
         </CreatedAt>
-        <ReactionSelector />
+        {ReactionSelector(card.points)}
       </Footer>
     </Wrapper>
   )

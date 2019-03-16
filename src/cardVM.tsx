@@ -5,7 +5,8 @@ export class CardVM {
     readonly employeeName: string,
     readonly employeePictureUrl: string,
     readonly createdAt: Date,
-    readonly message: string
+    readonly message: string,
+    readonly points: number
   ) {}
 
   toFormattedCreatedAt(): string {
