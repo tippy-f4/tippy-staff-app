@@ -10,6 +10,11 @@ const Toggler = styled.div`
   float: right;
 `
 
+const FloatedButton = styled.img`
+  box-shadow: 0 1px 5px 0 rgba(195, 195, 195, 0.5);
+  border-radius: 50%;
+`
+
 /*
 interface SelectorProps {
   isOpen: Boolean
@@ -34,7 +39,7 @@ export const ReactionSelector = () => {
 
   return (
     <Toggler onClick={() => setPressStatus(!isPressed)}>
-      <img src={isPressed ? HeartPressed : Heart} />
+      <FloatedButton src={isPressed ? HeartPressed : Heart} />
     </Toggler>
   )
 }
