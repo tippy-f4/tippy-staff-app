@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Heart from './heart.svg'
 import HeartPressed from './heart-pressed.svg'
+import superagent from 'superagent';
 
 /*
 interface SelectorProps {
@@ -45,17 +46,24 @@ const Points = styled.div`
 `
 
 interface ReactionSelectorProps {
+  cardId: string,
   points: number,
   isPraisable: boolean
 }
 
 export const ReactionSelector = (props: ReactionSelectorProps) => {
-  const { points, isPraisable } = props
+  const { cardId, points, isPraisable } = props
   const [isPraised, setPraisedStatus] = useState(isPraisable)
   const [currentPoints, updatePoints] = useState(points)
 
-  const incrementPoints = () => {
+  // 状態としてのリアクション数を加算してAPIにリクエストを飛ばす
+  const incrementPoints = async () => {
     updatePoints(currentPoints + 1)
+
+    const result = await superagent
+      .post('http://localhost:3030/reaction')
+      .send({ card_id: cardId })
+      .set('accept', 'json')
   }
 
   // まだ押してないときしかハートをつけられない

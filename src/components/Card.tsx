@@ -81,7 +81,11 @@ export const Card = (props: CardProps) => {
         <CreatedAt>
           {card.toFormattedCreatedAt()}
         </CreatedAt>
-        <ReactionSelector points={card.points} isPraisable={card.isPraisable} />
+        <ReactionSelector 
+          cardId={card.cardId}
+          points={card.points}
+          isPraisable={card.isPraisable}
+        />
       </Footer>
     </Wrapper>
   )
