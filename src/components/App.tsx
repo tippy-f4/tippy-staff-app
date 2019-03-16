@@ -96,7 +96,7 @@ const App = () => {
     <Wrapper>
       <HeaderBg />
       <Title>
-        F4 Tip サービス
+        tippy
       </Title>
       <Subtitle>
         東大宮店の店員が過去にもらったカード
