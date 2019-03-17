@@ -58,7 +58,7 @@ interface CardResponse {
   message: string,
   employee_name: string,
   employee_image: string,
-  is_praisable: boolean,
+  enable_praise: boolean,
   praise_count: number,
   created_at: string
 }
@@ -68,10 +68,13 @@ const App = () => {
     cards: []
   });
 
+  const currentEmployee = '11111111-1111-1111-1111-111111111111'
+
   useEffect(() => {
     const fetchCards = async () => {
       const { body } = await superagent
-        .get('http://localhost:3030/employee_posts')
+        .get(`${process.env.REACT_APP_HOST_BASE}/cards/employee_id?employee_id=${currentEmployee}`)
+        .withCredentials()
         .set('accept', 'json')
 
       setAppState({
@@ -82,7 +85,7 @@ const App = () => {
             c.employee_image,
             c.message,
             c.praise_count,
-            c.is_praisable,
+            c.enable_praise,
             new Date(c.created_at)
           )
         )

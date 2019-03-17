@@ -53,16 +53,19 @@ interface ReactionSelectorProps {
 
 export const ReactionSelector = (props: ReactionSelectorProps) => {
   const { cardId, points, isPraisable } = props
-  const [isPraised, setPraisedStatus] = useState(isPraisable)
+  const [isPraised, setPraisedStatus] = useState(!isPraisable)
   const [currentPoints, updatePoints] = useState(points)
 
   // 状態としてのリアクション数を加算してAPIにリクエストを飛ばす
   const incrementPoints = async () => {
     updatePoints(currentPoints + 1)
 
+    const currentEmployee = '11111111-1111-1111-1111-111111111111'
+
     const result = await superagent
-      .post('http://localhost:3030/reaction')
-      .send({ card_id: cardId })
+      .post(`${process.env.REACT_APP_HOST_BASE}/card/praise`)
+      .send({ card_id: cardId, employee_id: currentEmployee })
+      .withCredentials()
       .set('accept', 'json')
   }
 
