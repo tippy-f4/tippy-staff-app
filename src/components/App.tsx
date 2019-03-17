@@ -77,17 +77,22 @@ const App = () => {
         .set('accept', 'json')
 
       setAppState({
-        cards: body.cards.map((c: CardResponse) =>
-          new CardVM(
-            c.id,
-            c.employee_name,
-            c.employee_image,
-            c.message,
-            c.praise_count,
-            c.enable_praise,
-            new Date(c.created_at)
+        cards: body
+          .cards
+          .map((c: CardResponse) =>
+            new CardVM(
+              c.id,
+              c.employee_name,
+              c.employee_image,
+              c.message,
+              c.praise_count,
+              c.enable_praise,
+              new Date(c.created_at)
+            )
           )
-        )
+          .sort((a: CardVM, b: CardVM) => {
+            return b.createdAt.getTime() - a.createdAt.getTime()
+          })
       })
     }
 
