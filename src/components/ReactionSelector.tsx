@@ -60,7 +60,7 @@ export const ReactionSelector = (props: ReactionSelectorProps) => {
   const incrementPoints = async () => {
     updatePoints(currentPoints + 1)
 
-    const currentEmployee = '11111111-1111-1111-1111-111111111111'
+    const currentEmployee = '22222222-2222-2222-2222-222222222222'
     const result = await superagent
       .post(`${process.env.REACT_APP_HOST_BASE}/card/praise`)
       .send({ card_id: cardId, employee_id: currentEmployee })

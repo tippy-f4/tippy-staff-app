@@ -34,7 +34,8 @@ const Subtitle = styled.div`
 `
 
 const HeaderBg = styled.div`
-  background-image: linear-gradient(to right, #ffa080, #f47280);
+  background-image: linear-gradient(93deg, #75d997, #2cbdae);
+  // background-image: linear-gradient(to right, #ffa080, #f47280);
   position: absolute;
   height: 150px;
   left: 0;
@@ -70,7 +71,7 @@ const App = () => {
 
   useEffect(() => {
     const fetchCards = async () => {
-      const currentEmployee = '11111111-1111-1111-1111-111111111111'
+      const currentEmployee = '22222222-2222-2222-2222-222222222222'
       const { body } = await superagent
         .get(`${process.env.REACT_APP_HOST_BASE}/cards/employee_id?employee_id=${currentEmployee}`)
         .withCredentials()

@@ -35,7 +35,8 @@ const FacePicture = styled.img`
 
 const FacePictureBg = styled.div`
   border-radius: 50%;
-  background-image: linear-gradient(to right,#ffa080,#f47280);
+  // background-image: linear-gradient(to right,#ffa080,#f47280);
+  background-image: linear-gradient(93deg, #75d997, #2cbdae);
   height: 44px;
   width: 44px;
   position: absolute;
