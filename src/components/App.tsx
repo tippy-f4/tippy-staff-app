@@ -68,10 +68,10 @@ const App = () => {
     cards: []
   });
 
-  const currentEmployee = '11111111-1111-1111-1111-111111111111'
-
   useEffect(() => {
     const fetchCards = async () => {
+      const currentEmployee = '11111111-1111-1111-1111-111111111111'
+
       const { body } = await superagent
         .get(`${process.env.REACT_APP_HOST_BASE}/cards/employee_id?employee_id=${currentEmployee}`)
         .withCredentials()
