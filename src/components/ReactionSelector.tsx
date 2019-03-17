@@ -61,7 +61,6 @@ export const ReactionSelector = (props: ReactionSelectorProps) => {
     updatePoints(currentPoints + 1)
 
     const currentEmployee = '11111111-1111-1111-1111-111111111111'
-
     const result = await superagent
       .post(`${process.env.REACT_APP_HOST_BASE}/card/praise`)
       .send({ card_id: cardId, employee_id: currentEmployee })
